@@ -14,9 +14,9 @@ icon = pygame.image.load("img/icon.jpg")
 pygame.display.set_icon(icon)
 
 # Установка параметров мишени
-target_image = pygame.image.load("img/target.png")
-target_width = 40
-target_height = 40
+target_image = pygame.image.load("img/target1.png")
+target_width = 50
+target_height = 50
 
 target_x = random.randint(0, SCREEN_WIDTH - target_width)
 target_y = random.randint(0, SCREEN_HEIGHT - target_height)
@@ -36,7 +36,7 @@ class Target(pygame.sprite.Sprite):
         super().__init__()
         self.image = target_image
         self.rect = self.image.get_rect()
-        self.rect.center = ((SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2))
+        self.rect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2)
         self.target_pos = (target_x, target_y)
 
     def update(self):
@@ -52,6 +52,7 @@ class Target(pygame.sprite.Sprite):
 
         if self.rect.center == self.target_pos:
             self.target_pos = (random.randint(0, SCREEN_WIDTH), random.randint(0, SCREEN_HEIGHT))
+
 
 # Группы спрайтов
 all_sprites = pygame.sprite.Group()
@@ -86,6 +87,6 @@ while running:
     screen.blit(text, (10, 10))
 
     pygame.display.flip()
-    clock.tick(300)
+    clock.tick(250)
 
 pygame.quit()
